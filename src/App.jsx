@@ -9,8 +9,8 @@ import axios from "axios";
 function App() {
   const toast = useToast();
   const [inputAddress,setInputAddress] = useState('');
-  const FAUCET_ENDPOINT ="https://nexis-sandy.vercel.app/faucet";
-  // const FAUCET_ENDPOINT ="http://localhost:8080/faucet";
+  // const FAUCET_ENDPOINT ="https://nexis-sandy.vercel.app/faucet";
+  const FAUCET_ENDPOINT ="http://91.242.214.253:8080";
 
   const addNetwork = async () => {
     try {
@@ -18,14 +18,14 @@ function App() {
         method: 'wallet_addEthereumChain',
         params: [{
           chainId: '0x942',
-          chainName: 'Nexis Network Testnet',
+          chainName: 'Nexis Network Devnet',
           nativeCurrency: {
             name: 'Nexis',
             symbol: 'NZT',
             decimals: 18,
           },
-          rpcUrls: ['https://evm-testnet.nexis.network'],
-          blockExplorerUrls: ['https://evm-testnet.nexscan.io/'], 
+          rpcUrls: ['https://evm-devnet.nexis.network'],
+          blockExplorerUrls: ['https://evm-devnet.nexscan.io/'], 
         }],
       });
     } catch (error) {
@@ -42,11 +42,10 @@ function App() {
         isClosable: true,
       });
     }else{
-      const {data} = await axios.post(FAUCET_ENDPOINT,{address:inputAddress})
-      console.log(data)
-      if(data.sent){
+      const {data} = await axios.post(FAUCET_ENDPOINT,inputAddress)
+      if(data){
         toast({
-          title: "Sent tokens successfully",
+          title: data,
           status: "success",
           duration: 5000,
           isClosable: true,
@@ -73,13 +72,13 @@ function App() {
       <div style={{margin:'20px',maxWidth:'60%'}}>
 
       <Text fontSize='lg' fontWeight='bold'>
-          NOTE: We only send testnet NZT , which has no financial significance.
+          NOTE: We only send devnet NZT , which has no financial significance.
           </Text>
          
           </div>
           <Input placeholder='Paste Address' size='lg' width={"65vw"} value={inputAddress} onChange={e=>setInputAddress(e.target.value)}/>
           <br />
-          <Button className='card__cta cta' onClick={handleClick}>Receive 10 Test NZT</Button>
+          <Button className='card__cta cta' onClick={handleClick}>Receive 0.2 Test NZT</Button>
         </div>
 
       <Footer addNetwork={addNetwork} />

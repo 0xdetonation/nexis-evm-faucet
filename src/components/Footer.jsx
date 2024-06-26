@@ -6,7 +6,7 @@ function Footer(props) {
   return (
     <div className='footer'>
 <Divider/>
-<Button style={{margin:'20px'}} onClick={props.addNetwork}><img src='/metamask.png' style={{maxWidth:'20px',marginRight:'10px'}} /> Add Nexis Network Testnet </Button>
+<Button style={{margin:'20px'}} onClick={props.addNetwork}><img src='/metamask.png' style={{maxWidth:'20px',marginRight:'10px'}} /> Add Nexis Network Devnet </Button>
     </div>
   )
 }
