@@ -42,21 +42,31 @@ function App() {
         isClosable: true,
       });
     }else{
-      const {data} = await axios.post(FAUCET_ENDPOINT,inputAddress)
-      if(data){
-        toast({
-          title: data,
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
-      }else{
-        toast({
-          title: data.error,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
+      try {
+        const {data} = await axios.post(FAUCET_ENDPOINT,inputAddress)
+        if(data){
+          toast({
+            title: data,
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
+        }else{
+          toast({
+            title: data.error,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          });
+        }
+      
+      } catch (error) {
+          toast({
+            title: "Request after 5 minutes please!",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          });
       }
     }
   }
