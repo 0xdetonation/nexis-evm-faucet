@@ -17,7 +17,7 @@ function App() {
       await window.ethereum.request({
         method: 'wallet_addEthereumChain',
         params: [{
-          chainId: '0x942',
+          chainId: '0x943',
           chainName: 'Nexis Network Devnet',
           nativeCurrency: {
             name: 'Nexis',
