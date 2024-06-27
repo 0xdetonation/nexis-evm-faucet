@@ -10,7 +10,7 @@ function App() {
   const toast = useToast();
   const [inputAddress,setInputAddress] = useState('');
   // const FAUCET_ENDPOINT ="https://nexis-sandy.vercel.app/faucet";
-  const FAUCET_ENDPOINT ="http://91.242.214.253:8080";
+  const FAUCET_ENDPOINT ="https://evm-faucet-devnet.nexis.network/api";
 
   const addNetwork = async () => {
     try {
