@@ -10,7 +10,7 @@ function App() {
   const toast = useToast();
   const [inputAddress,setInputAddress] = useState('');
   // const FAUCET_ENDPOINT ="https://nexis-sandy.vercel.app/faucet";
-  const FAUCET_ENDPOINT ="https://evm-faucet-devnet.nexis.network/api";
+  const FAUCET_ENDPOINT ="https://evm-faucet-devnet.nexscan.io/api";
 
   const addNetwork = async () => {
     try {
